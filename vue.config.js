@@ -16,10 +16,10 @@ module.exports = {
       .end()
       .use("svgo-loader")
       .loader("svgo-loader")
-      .tap((options) => ({
-        ...options,
-        plugins: [{ removeAttrs: { attrs: "fill" } }],
-      }))
+      // .tap((options) => ({
+      //   ...options,
+      //   plugins: [{ removeAttrs: { attrs: "fill" } }],
+      // }))
       .end();
     config
       .plugin("svg-sprite")
