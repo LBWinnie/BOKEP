@@ -15,6 +15,11 @@ import Types from "@/components/Money/Types.vue";
 import Notes from "@/components/Money/Notes.vue";
 import Tags from "@/components/Money/Tags.vue";
 import { Component, Watch } from "vue-property-decorator";
+
+const { model } = require("@/model.js");
+//const model = require("@/model.js").default;
+console.log(model);
+
 const recordList: Record[] = JSON.parse(
   window.localStorage.getItem("recordList") || "[]"
 );
