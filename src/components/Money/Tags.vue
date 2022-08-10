@@ -6,12 +6,11 @@
     <ul class="current">
       <li
         v-for="tag in dataSource"
-        :key="tag"
+        :key="tag.id"
         :class="{ selected: selectedTags.indexOf(tag) >= 0 }"
-        selectd
         @click="toggle(tag)"
       >
-        {{ tag }}
+        {{ tag.name }}
       </li>
     </ul>
   </div>
@@ -20,7 +19,6 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
-
 @Component
 export default class Tags extends Vue {
   @Prop() readonly dataSource: string[] | undefined;
@@ -37,11 +35,9 @@ export default class Tags extends Vue {
   create() {
     const name = window.prompt("请输入标签名");
     if (name === "") {
-      window.alert("标签明明不能为空");
+      window.alert("标签名不能为空");
     } else if (this.dataSource) {
       this.$emit("update:dataSource", [...this.dataSource, name]);
-      // if (this.dataSource) {
-      //   this.dataSource.push(name!);
     }
   }
 }
@@ -49,6 +45,7 @@ export default class Tags extends Vue {
 
 <style lang="scss" scoped>
 .tags {
+  background: white;
   font-size: 14px;
   padding: 16px;
   flex-grow: 1;
@@ -63,12 +60,12 @@ export default class Tags extends Vue {
       $h: 24px;
       height: $h;
       line-height: $h;
-      border-radius: calc(($h) / 2);
+      border-radius: $h/2;
       padding: 0 16px;
       margin-right: 12px;
       margin-top: 4px;
       &.selected {
-        background: darken($bg, 30%);
+        background: darken($bg, 50%);
         color: white;
       }
     }
