@@ -16,7 +16,7 @@ import Vue from "vue";
 import { Component, Prop, Watch } from "vue-property-decorator";
 @Component
 export default class Types extends Vue {
-  @Prop() readonly value!: string;
+  @Prop() readonly value!: string; //外部传“支出”还是“收入”,!意为有无初始值都可(外部一定会传，不传就报错)
   selectType(type: string) {
     if (type !== "-" && type !== "+") {
       throw new Error("type is unknown");
