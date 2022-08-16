@@ -21,6 +21,20 @@ const store = new Vuex.Store({
     setCurrentTag(state, id: string) {
       state.currentTag = state.tagList.filter((t) => t.id === id)[0];
     },
+    updateTag(state, payload: { id: string; name: string }) {
+      const { id, name } = payload;
+      const idList = state.tagList.map((item) => item.id);
+      if (idList.indexOf(id) >= 0) {
+        const names = state.tagList.map((item) => item.name);
+        if (names.indexOf(name) >= 0) {
+          window.alert("标签名重复了");
+        } else {
+          const tag = state.tagList.filter((item) => item.id === id)[0];
+          tag.name = name;
+          store.commit("saveTags");
+        }
+      }
+    },
     removeTag(state, id: string) {
       let index = -1;
       for (let i = 0; i < state.tagList.length; i++) {
@@ -42,20 +56,6 @@ const store = new Vuex.Store({
         window.localStorage.getItem("recordList") || "[]"
       ) as RecordItem[];
     },
-    updateTag(state, payload: { id: string; name: string }) {
-      const { id, name } = payload;
-      const idList = state.tagList.map((item) => item.id);
-      if (idList.indexOf(id) >= 0) {
-        const names = state.tagList.map((item) => item.name);
-        if (names.indexOf(name) >= 0) {
-          window.alert("标签名重复了");
-        } else {
-          const tag = state.tagList.filter((item) => item.id === id)[0];
-          tag.name = name;
-          store.commit("saveTags");
-        }
-      }
-    },
     createRecord(state, record) {
       const record2: RecordItem = clone(record);
       record2.createdAt = new Date();
@@ -69,7 +69,9 @@ const store = new Vuex.Store({
       );
     },
     fetchTags(state) {
-      return JSON.parse(window.localStorage.getItem("tagList") || "[]");
+      state.tagList = JSON.parse(
+        window.localStorage.getItem("tagList") || "[]"
+      );
     },
     createTag(state, name: string) {
       const names = state.tagList.map((item) => item.name);
@@ -86,4 +88,5 @@ const store = new Vuex.Store({
     },
   },
 });
+
 export default store;
