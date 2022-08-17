@@ -1,4 +1,4 @@
 export default Object.freeze([
-  { text: "支出", vlaue: "-" },
-  { text: "收入", vlaue: "+" },
+  { text: "支出", value: "-" },
+  { text: "收入", value: "+" },
 ]);

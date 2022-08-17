@@ -1,5 +1,5 @@
 export default Object.freeze([
-  { text: "按天", vlaue: "day" },
-  { text: "按周", vlaue: "week" },
-  { text: "按月", vlaue: "month" },
+  { text: "按天", value: "day" },
+  { text: "按周", value: "week" },
+  { text: "按月", value: "month" },
 ]);
