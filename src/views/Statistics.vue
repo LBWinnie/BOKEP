@@ -1,17 +1,36 @@
 <template>
   <Layout>
     <Tabs
-      :class-prefix="type"
-      :data-source="type"
-      :vlaue.sync="recordTypeList"
+      class-prefix="type"
+      :data-source="recordTypeList"
+      :value.sync="type"
     />
     <Tabs
-      :classPrefix="interval"
-      :dataSource="intervalList"
-      :vlaue.sync="interval"
+      class-prefix="interval"
+      :data-source="intervalList"
+      :value.sync="interval"
     />
+    <div>
+      type: {{ type }}
+      <br />
+      interval: {{ interval }}
+    </div>
   </Layout>
 </template>
+
+<style scoped lang="scss">
+::v-deep {
+  .type-tabs-item {
+    background: white;
+    &.selected {
+      background: #c4c4c4;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+</style>
 
 <script lang="ts">
 import Vue from "vue";
@@ -29,16 +48,3 @@ export default class Statistics extends Vue {
   recordTypeList = recordTypeList;
 }
 </script>
-<style scoped lang="scss">
-::v-deep {
-  .type-tabs-item {
-    background: #c4c4c4;
-    &.selected {
-      background: white;
-      &::after {
-        display: none;
-      }
-    }
-  }
-}
-</style>
