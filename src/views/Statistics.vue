@@ -137,7 +137,6 @@ export default class Statistics extends Vue {
     return (this.$store.state as RootState).recordList;
   }
   get groupedList() {
-    console.log("grouped list 被读取了");
     const { recordList } = this;
     const newList = clone(recordList)
       .filter((r) => r.type === this.type)
