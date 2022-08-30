@@ -1,7 +1,11 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button @click="createTag">新增标签</button>
+      <button>
+        <router-link to="/labels" class="item" active-class="selected">
+          编辑标签 >
+        </router-link>
+      </button>
     </div>
     <ul class="current">
       <li

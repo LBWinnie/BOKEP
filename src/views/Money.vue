@@ -17,11 +17,6 @@
         />
       </div>
     </div>
-    <button>
-      <router-link to="/labels" class="item" active-class="selected">
-        编辑标签 >
-      </router-link>
-    </button>
     <Tags @update:value="record.tags = $event" />
   </Layout>
 </template>
