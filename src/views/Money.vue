@@ -5,9 +5,7 @@
     <div class="remark">
       <div class="notes">
         <Icon name="notes" />
-        <div class="wrap">
-          <FormItem placeholder="添加备注.." :value.sync="record.notes" />
-        </div>
+        <FormItem placeholder="添加备注.." :value.sync="record.notes" />
       </div>
       <div class="createdAt">
         <FormItem
@@ -29,6 +27,7 @@ import Tags from "@/components/Money/Tags.vue";
 import { Component } from "vue-property-decorator";
 import Tabs from "@/components/Tabs.vue";
 import recordTypeList from "@/constants/recordTypeList";
+import Icon from "@/components/Icon.vue";
 @Component({
   components: { Tabs, Tags, FormItem, NumberPad },
 })
@@ -71,25 +70,22 @@ export default class Money extends Vue {
 .remark {
   display: flex;
   align-items: center;
+
   > .createdAt {
     border: 1px solid red;
+    width: 40%;
   }
   > .notes {
     border: 1px solid blue;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    padding-left: 12px;
+    width: 60%;
+    position: relative;
     > .icon {
       border: 1px solid green;
-    }
-    > .wrap {
-      flex-grow: 1;
-      border: 1px solid orange;
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
-}
-button {
-  display: inline;
 }
 </style>

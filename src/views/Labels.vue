@@ -1,5 +1,8 @@
 <template>
   <Layout>
+    <div class="createTag-wrapper">
+      <Button class="createTag" @click="createTag"> 新建标签 </Button>
+    </div>
     <div class="tags">
       <router-link
         class="tag"
@@ -10,9 +13,6 @@
         <span>{{ tag.name }}</span>
         <Icon name="right" />
       </router-link>
-    </div>
-    <div class="createTag-wrapper">
-      <Button class="createTag" @click="createTag"> 新建标签 </Button>
     </div>
   </Layout>
 </template>
@@ -63,9 +63,9 @@ export default class Labels extends mixins(TagHelper) {
   height: 40px;
   padding: 0 16px;
   &-wrapper {
+    background: #c4c4c4;
     text-align: center;
     padding: 16px;
-    margin-top: 44-16px;
   }
 }
 </style>
