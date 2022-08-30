@@ -5,11 +5,11 @@
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
-      <button @click="remove">删除</button>
+      <button @click="remove"><Icon name="delete" /></button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
-      <button @click="clear">清空</button>
+      <button @click="clear"><Icon name="clear" /></button>
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
@@ -23,6 +23,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
+import Icon from "../Icon.vue";
 @Component
 export default class NumberPad extends Vue {
   @Prop(Number) readonly value!: number;

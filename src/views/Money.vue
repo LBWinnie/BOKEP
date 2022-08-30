@@ -6,7 +6,7 @@
       <div class="notes">
         <Icon name="notes" />
         <div class="wrap">
-          <FormItem placeholder="输入备注" :value.sync="record.notes" />
+          <FormItem placeholder="添加备注.." :value.sync="record.notes" />
         </div>
       </div>
       <div class="createdAt">
@@ -17,7 +17,11 @@
         />
       </div>
     </div>
-
+    <button>
+      <router-link to="/labels" class="item" active-class="selected">
+        编辑标签 >
+      </router-link>
+    </button>
     <Tags @update:value="record.tags = $event" />
   </Layout>
 </template>
@@ -73,19 +77,24 @@ export default class Money extends Vue {
   display: flex;
   align-items: center;
   > .createdAt {
-    width: 30%;
+    border: 1px solid red;
   }
   > .notes {
-    width: 70%;
+    border: 1px solid blue;
+    flex-grow: 1;
     display: flex;
     align-items: center;
     padding-left: 12px;
     > .icon {
-      width: 10%;
+      border: 1px solid green;
     }
     > .wrap {
-      width: 90%;
+      flex-grow: 1;
+      border: 1px solid orange;
     }
   }
+}
+button {
+  display: inline;
 }
 </style>

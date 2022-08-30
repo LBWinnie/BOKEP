@@ -25,6 +25,9 @@ const store = new Vuex.Store({
         const names = state.tagList.map((item) => item.name);
         if (names.indexOf(name) >= 0) {
           window.alert("标签名重复!");
+        }
+        if (name === " ") {
+          window.alert("标签名不能为空!");
         } else {
           const tag = state.tagList.filter((item) => item.id === id)[0];
           tag.name = name;
@@ -81,6 +84,10 @@ const store = new Vuex.Store({
       const names = state.tagList.map((item) => item.name);
       if (names.indexOf(name) >= 0) {
         state.createTagError = new Error("tag name duplicated");
+        return;
+      }
+      if (name === " ") {
+        window.alert("标签名不能为空!");
         return;
       }
       const id = createId().toString();
