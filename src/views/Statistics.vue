@@ -8,21 +8,6 @@
     <div class="chart-wrapper" ref="chartWrapper">
       <Chart class="chart" :options="chartOptions" />
     </div>
-    <ol v-if="groupedList.length > 0">
-      <li v-for="(group, index) in groupedList" :key="index">
-        <h3 class="title">
-          {{ beautify(group.title) }} <span>￥{{ group.total }}</span>
-        </h3>
-        <ol>
-          <li v-for="item in group.items" :key="item.id" class="record">
-            <span>{{ tagString(item.tags) }}</span>
-            <span class="notes">{{ item.notes }}</span>
-            <span>￥{{ item.amount }} </span>
-          </li>
-        </ol>
-      </li>
-    </ol>
-    <div v-else class="noResult">目前没有相关记录</div>
   </Layout>
 </template>
 <script lang="ts">
