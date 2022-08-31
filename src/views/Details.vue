@@ -20,8 +20,8 @@
       </li>
     </ol>
     <div v-else class="noResult">
-      <Icon name="nothing" /><br />
-      目前没有相关记录
+      🧾 ❓<br />
+      —— 暂无记录 ——
     </div>
   </Layout>
 </template>

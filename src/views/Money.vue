@@ -1,20 +1,25 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord" />
+    <FormItem
+      field-name="📝 备注 :"
+      placeholder="添加备注.."
+      :value.sync="record.notes"
+    />
+
     <Tabs :data-source="recordTypeList" :value.sync="record.type" />
     <div class="remark">
-      <div class="notes">
-        <Icon name="notes" />
-        <FormItem placeholder="添加备注.." :value.sync="record.notes" />
-      </div>
+      <div class="account"></div>
       <div class="createdAt">
         <FormItem
+          field-name="⏳ 日期 :"
           type="date"
-          placeholder="输入日期"
+          placeholder="选择日期"
           :value.sync="record.createdAt"
         />
       </div>
     </div>
+
     <Tags @update:value="record.tags = $event" />
   </Layout>
 </template>
@@ -70,22 +75,9 @@ export default class Money extends Vue {
 .remark {
   display: flex;
   align-items: center;
-
-  > .createdAt {
-    border: 1px solid red;
-    width: 40%;
-  }
-  > .notes {
-    border: 1px solid blue;
-    width: 60%;
-    position: relative;
-    > .icon {
-      border: 1px solid green;
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  > .account {
+    padding-left: 16px;
+    flex-grow: 1;
   }
 }
 </style>

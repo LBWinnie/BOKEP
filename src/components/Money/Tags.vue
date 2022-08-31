@@ -3,7 +3,7 @@
     <div class="new">
       <button>
         <router-link to="/labels" class="item" active-class="selected">
-          编辑标签 >
+          ✒️ 编辑标签 >
         </router-link>
       </button>
     </div>
