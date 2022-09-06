@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="createTag-wrapper">
-      <Button class="createTag" @click="createTag"><Icon name="add" /> </Button>
+      <Button class="createTag" @click="createTag">+</Button>
     </div>
     <div class="tags">
       <router-link
@@ -58,10 +58,11 @@ export default class Labels extends mixins(TagHelper) {
 .createTag {
   background: #767676;
   color: white;
+  font-size: 30px;
+  line-height: 50px;
   border-radius: 50%;
   border: none;
-  height: 45px;
-  padding: 0 16px;
+  height: 50px;
   &-wrapper {
     border-bottom: 1px solid #e6e6e6;
     text-align: center;

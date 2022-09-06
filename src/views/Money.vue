@@ -9,7 +9,6 @@
 
     <Tabs :data-source="recordTypeList" :value.sync="record.type" />
     <div class="remark">
-      <div class="account"></div>
       <div class="createdAt">
         <FormItem
           field-name="⏳ 日期 :"
@@ -75,9 +74,8 @@ export default class Money extends Vue {
 .remark {
   display: flex;
   align-items: center;
-  > .account {
-    padding-left: 16px;
-    flex-grow: 1;
+  > .createdAt {
+    margin-left: auto;
   }
 }
 </style>

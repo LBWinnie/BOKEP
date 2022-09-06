@@ -1,4 +1,4 @@
 export default Object.freeze([
-  { text: "支出", value: "-" },
-  { text: "收入", value: "+" },
+  { text: "ʚ·支出·ɞ", value: "-" },
+  { text: "ʚ·收入·ɞ", value: "+" },
 ]);

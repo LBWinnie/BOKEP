@@ -37,7 +37,6 @@ export default class Statistics extends Vue {
     if (day.isSame(now, "day")) {
       return "今天";
     } else if (day.isSame(now.subtract(1, "day"), "day")) {
-      console.log("hi");
       return "昨天";
     } else if (day.isSame(now.subtract(2, "day"), "day")) {
       return "前天";
@@ -50,7 +49,6 @@ export default class Statistics extends Vue {
   get keyValueList() {
     const today = new Date();
     const array = [];
-    console.log(this.groupedList);
     for (let i = 0; i <= 29; i++) {
       // this.recordList = [{date:7.3, value:100}, {date:7.2, value:200}]
       const dateString = day(today).subtract(i, "day").format("YYYY-MM-DD");
@@ -71,15 +69,11 @@ export default class Statistics extends Vue {
         return -1;
       }
     });
-    console.log("array");
-    console.log(array);
     return array;
   }
   get chartOptions() {
     const keys = this.keyValueList.map((item) => item.key);
     const values = this.keyValueList.map((item) => item.value);
-    console.log("values");
-    console.log(values);
     return {
       grid: {
         left: 0,
